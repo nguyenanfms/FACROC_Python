@@ -1,0 +1,29 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Jupyter Notebook
+.ipynb_checkpoints
+
+# IDEs
+.vscode/
+.idea/
+
+# OS metadata
+.DS_Store
+Thumbs.db
+
+# LaTeX files (ignored from repository to keep it code-only)
+reports/latex/
+
+# Datasets (ignore raw data, but track preprocessed data)
+dataset/*
+!dataset/processed/
+
+
+# Local planning and original paper files
+plan_ds102.md
+models.md
+main_paper.pdf
+
