@@ -26,4 +26,6 @@ dataset/*
 plan_ds102.md
 models.md
 main_paper.pdf
+reports/experimental_results.md
+reports/metric_descriptions.md
 
