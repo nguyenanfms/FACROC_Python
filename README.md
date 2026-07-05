@@ -6,7 +6,7 @@ The project is a replication study based on the paper: *Evaluating Fairness in C
 
 ---
 
-## 📂 Project Structure
+## Project Structure
 
 ```text
 ├── dataset/                  # Datasets (Ignored by Git, see Setup to download)
@@ -18,7 +18,8 @@ The project is a replication study based on the paper: *Evaluating Fairness in C
 │   └── processed/            # Preprocessed datasets (tracked by Git)
 ├── notebooks/
 │   ├── preprocessing.ipynb   # Data cleaning and feature scaling notebook
-│   └── clustering.ipynb      # Algorithms execution and FACROC evaluation notebook
+│   ├── clustering.ipynb      # Algorithms execution and FACROC evaluation notebook
+│   └── evaluation.ipynb      # Multi-metric evaluation (Silhouette, AUCC, Balance, Proportionality, FACROC)
 ├── src/
 │   ├── models/               # 5 clustering algorithms built from scratch
 │   │   ├── kmeans.py            - K-Means with K-Means++ initialization
@@ -29,7 +30,7 @@ The project is a replication study based on the paper: *Evaluating Fairness in C
 │   └── utils/                # Utility scripts
 │       ├── data_loader.py       - Custom dataset loading and caching
 │       ├── facroc.py            - AUCC and FACROC metric calculation
-│       ├── facroc_experiments.py- Automated batch experiments runner
+│       ├── facroc_experiments.py - Automated batch experiments runner
 │       ├── FACROC.R             - Reference R implementation
 │       └── FACROC_experiments.R - Reference R experiments script
 ├── reports/
@@ -40,7 +41,7 @@ The project is a replication study based on the paper: *Evaluating Fairness in C
 
 ---
 
-## 🛠️ Setup & Installation
+## Setup and Installation
 
 ### 1. Prerequisites
 - Python 3.11+
@@ -59,22 +60,27 @@ Place the raw data in the respective folders under `dataset/` (refer to `noteboo
 
 ---
 
-## 🚀 How to Run
+## How to Run
 
 1. **Preprocessing**:
    Open and run all cells in `notebooks/preprocessing.ipynb` to clean the raw data and save them into `dataset/processed/`.
    
-2. **Clustering & Evaluation**:
+2. **Clustering and Evaluation**:
    Open and run `notebooks/clustering.ipynb`. This will:
    - Load the preprocessed datasets.
    - Run the 5 clustering algorithms (K-Means, Hierarchical, Fairlet, Scalable Fair, Proportional Fair).
    - Compute AUCC and FACROC scores.
    - Plot the ROC curves and save them to `reports/figures/`.
 
+3. **Multi-Metric Evaluation**:
+   Open and run `notebooks/evaluation.ipynb` to train all 5 models on a selected dataset and evaluate across 5 metrics: Silhouette Coefficient, AUCC, Balance, Proportionality, and FACROC.
+
 ---
 
-## 📊 Summary of Results
+## Summary of Results
 
-Detailed experimental comparisons between the original paper's reported values and our reproduced results are available in [reports/experimental_results.md](file:///d:/HK3-UIT-2025_2026/%C4%90%E1%BB%93%20%C3%A1n/reports/experimental_results.md).
+Detailed experimental comparisons between the original paper's reported values and our reproduced results are available in [reports/experimental_results.md](reports/experimental_results.md).
 
-The visual comparisons and the 6x5 grid showing all 30 ROC curves can be viewed directly inside the executed notebook: **[notebooks/clustering.ipynb](file:///d:/HK3-UIT-2025_2026/%C4%90%E1%BB%93%20%C3%A1n/notebooks/clustering.ipynb)**.
+The visual comparisons and the 6x5 grid showing all 30 ROC curves can be viewed directly inside the executed notebook: [notebooks/clustering.ipynb](notebooks/clustering.ipynb).
+
+The multi-metric evaluation table for COMPAS can be viewed in [notebooks/evaluation.ipynb](notebooks/evaluation.ipynb).
